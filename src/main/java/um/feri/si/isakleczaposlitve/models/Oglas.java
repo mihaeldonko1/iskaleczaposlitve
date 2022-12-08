@@ -1,7 +1,11 @@
 package um.feri.si.isakleczaposlitve.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -12,9 +16,20 @@ public class Oglas {
 	@Column(name = "id")
 	private Long id;
 
+	@OneToOne(mappedBy = "oglas")
+	private Napotnica napotnica;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "podjetje_id", referencedColumnName = "id")
 	private Podjetje podjetje;
+
+	@OneToMany(mappedBy = "oglas", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	Collection<Vloga> vloge;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "uporabnik_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore
+	Delodajalec delodajalec;
 
 	private double urnaPostavka;
 
