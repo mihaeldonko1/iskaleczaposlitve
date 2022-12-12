@@ -25,7 +25,43 @@ public class Napotnica{
     @JoinColumn(name = "placilo_id", referencedColumnName = "id")
     private Placilo placilo;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Iskalec getIskalecDela() {
+        return iskalecDela;
+    }
 
+    public void setIskalecDela(Iskalec iskalecDela) {
+        this.iskalecDela = iskalecDela;
+    }
+
+    public Delodajalec getDelodajalec() {
+        return delodajalec;
+    }
+
+    public void setDelodajalec(Delodajalec delodajalec) {
+        this.delodajalec = delodajalec;
+    }
+
+    public Oglas getOglas() {
+        return oglas;
+    }
+
+    public void setOglas(Oglas oglas) {
+        this.oglas = oglas;
+    }
+
+    public Placilo getPlacilo() {
+        return placilo;
+    }
+
+    public void setPlacilo(Placilo placilo) {
+        this.placilo = placilo;
+    }
 }

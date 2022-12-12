@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import um.feri.si.isakleczaposlitve.dao.OglasRepository;
 import um.feri.si.isakleczaposlitve.dao.PodjetjeRepository;
+import um.feri.si.isakleczaposlitve.models.Napotnica;
 import um.feri.si.isakleczaposlitve.models.Oglas;
 import um.feri.si.isakleczaposlitve.models.Podjetje;
 
@@ -54,6 +55,11 @@ public class OglasController {
     @GetMapping("/najboljsi")
     public Iterable<Oglas> najboljsiOglasi(){
         return oglasDao.najboljsiOglasi();
+    }
+
+    @GetMapping("/oglas-od/{ime}")
+    public Iterable<Oglas> vrniOglaseOd(@PathVariable(name = "ime") String ime){
+        return oglasDao.vrniOglaseOd(ime);
     }
 
 }
