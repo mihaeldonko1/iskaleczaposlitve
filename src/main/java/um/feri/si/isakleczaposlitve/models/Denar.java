@@ -9,7 +9,5 @@ public class Denar extends Placilo{
 
 	private Date datumIzplacila;
 
-	private float vsotaIzplacila;
-
 
 }
